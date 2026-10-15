@@ -4,9 +4,9 @@ Penguin is a Windows x64 controller and mod for **Lunar Client with Minecraft 1.
 
 ## Download
 
-**[Download Penguin 1.9.6 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.6/Penguin-Lunar-1.9.6-Windows.zip)**
+**[Download Penguin 1.9.7 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.7/Penguin-Lunar-1.9.7-Windows.zip)**
 
-Download `Penguin-Lunar-1.9.6-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
+Download `Penguin-Lunar-1.9.7-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
 
 ## First launch
 
@@ -21,6 +21,7 @@ Do not install a second copy of Penguin in the mods folder. When updating from a
 ## Controls
 
 - **K:** open Penguin's menu while in a world. At Minecraft's main menu, use **Open menu** in the controller.
+- **J:** toggle all player nametags and tracers, including friends. Friend appearance and label/line choices are preserved.
 - **F8:** stop both clickers and aim tracking during gameplay.
 - **] / F7:** default left/right clicker toggles; change these in Settings.
 - **Stop Penguin:** stop the mod while Minecraft remains open. You can load it again in the same session.
