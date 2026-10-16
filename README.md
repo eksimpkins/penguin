@@ -4,9 +4,9 @@ Penguin is a Windows x64 controller and mod for **Lunar Client with Minecraft 1.
 
 ## Download
 
-**[Download Penguin 1.9.10 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.10/Penguin-Lunar-1.9.10-Windows.zip)**
+**[Download Penguin 1.9.11 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.11/Penguin-Lunar-1.9.11-Windows.zip)**
 
-Download `Penguin-Lunar-1.9.10-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
+Download `Penguin-Lunar-1.9.11-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
 
 ## First launch
 
@@ -30,7 +30,12 @@ For repeated clicks, enable a clicker, close the menu, then release and hold tha
 
 Closing the controller window does not stop the mod. **Stop Penguin** disables its effects and input handling; already loaded Java classes remain until Minecraft exits.
 
-## New in 1.9.10
+## New in 1.9.11
+
+- **Live settings sync:** saved settings and module switches update between upgraded windows using the same game/config folder.
+- **Show '(behind)' text:** a shared toggle under Nametags and Friend Overlay, OFF by default. Edge labels and tracers continue to work normally.
+
+## From 1.9.10
 
 - Friend additions use consistent account-name matching; adding a saved OFF friend enables it again.
 - Friend label and tracer styling is resolved when drawing, and embedded name formatting cannot override the selected text color.
@@ -43,7 +48,7 @@ Closing the controller window does not stop the mod. **Stop Penguin** disables i
 - **Clues > Clue Scrolls:** chest sorting, optional tier grouping, and collecting matches using hotbar slot 1, with adjustable click delay.
 - **Profiles:** export and import shareable settings files, optionally including saved friend names. Import backs up current settings and leaves automation off until enabled.
 
-Profiles from 1.9.8 still import correctly. New profiles include both visual toggles and require 1.9.9 or newer.
+Profile formats 1 and 2, exported by 1.9.8 through 1.9.10, remain supported; their behind-text setting defaults OFF. New exports use format 3 and require 1.9.11 or newer.
 
 ## Included features
 
@@ -56,10 +61,14 @@ Profiles from 1.9.8 still import correctly. New profiles include both visual tog
 
 ## Multiple Lunar windows
 
-Windows using the same game folder share the saved settings file, but each keeps its own loaded settings. Changes do not currently sync live; the last window to save can overwrite the file. This update does not add synchronization.
+Restart and load **1.9.11 in every participating window**. Games sharing the same game/config folder sync all saved settings, including module ON/OFF switches, normally within about **0.5 seconds while ticking**. Open menus update too; separate game/config folders remain independent.
+
+Independent simultaneous edits merge, including changes to different friends. When windows change the same setting or friend, the last save wins for that change. Loading/stopping Penguin, selected targets and running operations stay local to each game. Changes to clicker controls require a fresh physical release/press; focused gameplay and a held button are still required.
+
+The shared file is `config/penguin-live-settings.json`, initialized once from existing `namelines.json` and `cluesort.json` settings. It becomes the authoritative settings file. Older versions do not participate in live sync.
 
 ## Compatibility and validation
 
-This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. The release passed **193 automated tests**, and clicker startup was checked in Lunar. Aim smoothing was confirmed in use; the reported intermittent friend-color issue still needs live confirmation, as does Constant FOV against Trap. Adjustable aim placement and click delivery also need normal play testing.
+This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. Version 1.9.11 passed **213 automated tests**, including two-session sync, overlapping saves, friend-list merging, profile rollback, older profile migration and the optional behind text. Multi-window sync in Lunar and the reported intermittent friend-color issue still need live confirmation, as does Constant FOV against Trap. Aim smoothing was confirmed in use, and clicker startup was checked in an earlier Lunar build; adjustable aim placement and click delivery also need normal play testing.
 
 See the included `README.txt` for the full settings and troubleshooting guide. The project uses the [MIT license](LICENSE).
