@@ -1,18 +1,17 @@
-# Penguin 1.9.8 — Lunar preview
+# Penguin 1.9.9 — Lunar preview
 
-Download **Penguin-Lunar-1.9.8-Windows.zip** below and extract the entire ZIP. It includes Penguin.exe, the mod and Java runtime. GitHub's automatic **Source code** downloads are not the runnable Windows package.
+Download **Penguin-Lunar-1.9.9-Windows.zip** below and extract the entire ZIP. It includes Penguin.exe, the mod and Java runtime. GitHub's automatic **Source code** downloads are not the runnable Windows package.
 
 ## Changes
 
-- **Scalable menu:** Settings now has a saved 50–150% menu scale and reset button. Text, controls and mouse input scale together; smaller windows fit automatically. Friends, block picker, key capture and profiles follow the same scale.
-- **No Blindness / No Nausea:** separate Visuals toggles suppress blindness fog/sky obstruction and nausea distortion/overlay. Effect timers and icons remain; Darkness and portals are unchanged. Turning the controls off or stopping Penguin restores normal rendering.
-- **Clue Scrolls:** restored chest sorting, optional tier grouping, and Collect matching using a clue in hotbar slot 1. Collection ignores tier/progress and uses empty inventory slots. Click delay ranges from 250 to 10000 ms. Enable Clues > Clue Scrolls, then open a chest. Remove any old standalone ClueSort copy first.
-- **Shareable profiles:** export/import named JSON settings files. Friend names are optional and excluded by default; friend appearance settings are included. Imports preview before confirmation, create a backup and leave automation off until you enable it.
-- Includes all previous features, including J toggling friend nametags and tracers.
+- **Visuals > No Debuff:** blindness and nausea visual suppression now share one toggle. If either old setting was enabled, No Debuff stays enabled after upgrading. Actual status effects, timers and icons remain; this does not remove server-side debuffs.
+- **Visuals > Constant FOV:** keeps your world view at the FOV selected in Minecraft's settings, preventing movement and effect multipliers from zooming it in or out. Hand/item projection is unchanged. Defaults off; turning it off or stopping Penguin restores normal FOV changes.
+- **Profile compatibility:** imports existing 1.9.8 profiles and migrates the old blindness/nausea switches. New exports include both new controls and require 1.9.9 or newer.
+- Includes menu scaling, clue-scroll tools, shareable profiles and all previous features.
 
-**Validation:** all 177 automated tests passed, including scale/input coordinates, reversible rendering hooks, clue plans and profile backup/rollback checks. Live Lunar testing of these new features is still pending.
+**Validation:** 188 automated tests passed, including renderer compatibility, FOV restoration and settings/profile migration. Live Lunar testing against the enchantment is still pending.
 
-**Updating:** restart Minecraft once to clear older loaded code, then use the new Penguin.exe. Existing settings are preserved.
+**Updating:** restart Minecraft once to clear older loaded code, then use the new Penguin.exe. Existing settings are preserved. Press K, open Visuals, and enable Constant FOV to use the new control.
 
 Requires **Windows x64, Lunar Fabric 1.21.11 and Fabric API**. On first use, fully close Lunar, including its tray icon, then open Penguin.exe to prepare attachment. Launch the game, click Refresh, select it and Load Penguin.
 

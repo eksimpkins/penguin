@@ -4,9 +4,9 @@ Penguin is a Windows x64 controller and mod for **Lunar Client with Minecraft 1.
 
 ## Download
 
-**[Download Penguin 1.9.8 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.8/Penguin-Lunar-1.9.8-Windows.zip)**
+**[Download Penguin 1.9.9 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.9/Penguin-Lunar-1.9.9-Windows.zip)**
 
-Download `Penguin-Lunar-1.9.8-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
+Download `Penguin-Lunar-1.9.9-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
 
 ## First launch
 
@@ -30,12 +30,15 @@ For repeated clicks, enable a clicker, close the menu, then release and hold tha
 
 Closing the controller window does not stop the mod. **Stop Penguin** disables its effects and input handling; already loaded Java classes remain until Minecraft exits.
 
-## New in 1.9.8
+## New in 1.9.9
 
 - **Settings > Menu scale:** 50–150%, with a reset button and automatic fitting for small windows.
-- **Visuals > No Blindness / No Nausea:** separate controls for fog, sky obstruction, distortion and nausea overlay. Actual status effects remain.
+- **Visuals > No Debuff:** one toggle for blindness fog/sky obstruction and nausea distortion/overlay. Actual status effects remain.
+- **Visuals > Constant FOV:** keeps the world view at the FOV selected in Minecraft, preventing movement/effect zoom. Hand/item projection is unchanged. Both controls restore normal rendering when switched off.
 - **Clues > Clue Scrolls:** chest sorting, optional tier grouping, and collecting matches using hotbar slot 1, with adjustable click delay.
 - **Profiles:** export and import shareable settings files, optionally including saved friend names. Import backs up current settings and leaves automation off until enabled.
+
+Profiles from 1.9.8 still import correctly. New profiles include both visual toggles and require 1.9.9 or newer.
 
 ## Included features
 
@@ -48,6 +51,6 @@ Closing the controller window does not stop the mod. **Stop Penguin** disables i
 
 ## Compatibility and validation
 
-This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. The release passed **177 automated tests**, and clicker startup was checked in Lunar. Aim smoothing was confirmed in use; the new scaled screens, visual-effect controls, clue tools and profiles still need live Lunar testing. Adjustable aim placement and click delivery also need normal play testing.
+This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. The release passed **188 automated tests**, and clicker startup was checked in Lunar. Aim smoothing was confirmed in use; the new Constant FOV control and merged No Debuff switch still need live Lunar testing against the enchantment. Adjustable aim placement and click delivery also need normal play testing.
 
 See the included `README.txt` for the full settings and troubleshooting guide. The project uses the [MIT license](LICENSE).
