@@ -4,9 +4,9 @@ Penguin is a Windows x64 controller and mod for **Lunar Client with Minecraft 1.
 
 ## Download
 
-**[Download Penguin 1.9.7 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.7/Penguin-Lunar-1.9.7-Windows.zip)**
+**[Download Penguin 1.9.8 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.8/Penguin-Lunar-1.9.8-Windows.zip)**
 
-Download `Penguin-Lunar-1.9.7-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
+Download `Penguin-Lunar-1.9.8-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
 
 ## First launch
 
@@ -30,6 +30,13 @@ For repeated clicks, enable a clicker, close the menu, then release and hold tha
 
 Closing the controller window does not stop the mod. **Stop Penguin** disables its effects and input handling; already loaded Java classes remain until Minecraft exits.
 
+## New in 1.9.8
+
+- **Settings > Menu scale:** 50–150%, with a reset button and automatic fitting for small windows.
+- **Visuals > No Blindness / No Nausea:** separate controls for fog, sky obstruction, distortion and nausea overlay. Actual status effects remain.
+- **Clues > Clue Scrolls:** chest sorting, optional tier grouping, and collecting matches using hotbar slot 1, with adjustable click delay.
+- **Profiles:** export and import shareable settings files, optionally including saved friend names. Import backs up current settings and leaves automation off until enabled.
+
 ## Included features
 
 - Mining verification, auto-sell and individual alerts with volume controls.
@@ -41,6 +48,6 @@ Closing the controller window does not stop the mod. **Stop Penguin** disables i
 
 ## Compatibility and validation
 
-This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. The release passed **135 automated tests**, and clicker startup was checked in Lunar. Aim smoothing was confirmed in use; adjustable aim placement and click delivery still need normal play testing.
+This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. The release passed **177 automated tests**, and clicker startup was checked in Lunar. Aim smoothing was confirmed in use; the new scaled screens, visual-effect controls, clue tools and profiles still need live Lunar testing. Adjustable aim placement and click delivery also need normal play testing.
 
 See the included `README.txt` for the full settings and troubleshooting guide. The project uses the [MIT license](LICENSE).
