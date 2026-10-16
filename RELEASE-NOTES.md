@@ -1,17 +1,18 @@
-# Penguin 1.9.9 — Lunar preview
+# Penguin 1.9.10 — Lunar preview
 
-Download **Penguin-Lunar-1.9.9-Windows.zip** below and extract the entire ZIP. It includes Penguin.exe, the mod and Java runtime. GitHub's automatic **Source code** downloads are not the runnable Windows package.
+Download **Penguin-Lunar-1.9.10-Windows.zip** below and extract the entire ZIP. It includes Penguin.exe, the mod and Java runtime. GitHub's automatic **Source code** downloads are not the runnable Windows package.
 
 ## Changes
 
-- **Visuals > No Debuff:** blindness and nausea visual suppression now share one toggle. If either old setting was enabled, No Debuff stays enabled after upgrading. Actual status effects, timers and icons remain; this does not remove server-side debuffs.
-- **Visuals > Constant FOV:** keeps your world view at the FOV selected in Minecraft's settings, preventing movement and effect multipliers from zooming it in or out. Hand/item projection is unchanged. Defaults off; turning it off or stopping Penguin restores normal FOV changes.
-- **Profile compatibility:** imports existing 1.9.8 profiles and migrates the old blindness/nausea switches. New exports include both new controls and require 1.9.9 or newer.
-- Includes menu scaling, clue-scroll tools, shareable profiles and all previous features.
+- **Consistent friend additions:** typed names and Nearby selections use the same account-name matching. Adding an existing OFF friend turns it ON again without duplicating it. Nearby entries use the same listed-player and NPC checks as Penguin's overlay.
+- **Friend colors:** the overlay resolves current friend settings when drawing labels and tracers. Formatting codes embedded in account names no longer override the chosen label color.
+- Includes No Debuff, Constant FOV, menu scaling, clue-scroll tools, profiles and all previous features.
 
-**Validation:** 188 automated tests passed, including renderer compatibility, FOV restoration and settings/profile migration. Live Lunar testing against the enchantment is still pending.
+**Validation:** all 193 automated tests passed, including friend additions, re-enabling and actual Minecraft text formatting. The exact cause of the reported intermittent color delay remains unconfirmed; this update addresses the concrete matching, add-flow and formatting issues found during investigation. Live Lunar confirmation is still needed.
 
-**Updating:** restart Minecraft once to clear older loaded code, then use the new Penguin.exe. Existing settings are preserved. Press K, open Visuals, and enable Constant FOV to use the new control.
+**Multiple windows:** games using the same game folder share the saved settings file but keep separate loaded settings. Changes do not currently sync live, and the last window to save can overwrite that file. This update does not add synchronization.
+
+**Updating:** restart Minecraft once to clear older loaded code, then use the new Penguin.exe. Existing settings and profiles are preserved.
 
 Requires **Windows x64, Lunar Fabric 1.21.11 and Fabric API**. On first use, fully close Lunar, including its tray icon, then open Penguin.exe to prepare attachment. Launch the game, click Refresh, select it and Load Penguin.
 

@@ -4,9 +4,9 @@ Penguin is a Windows x64 controller and mod for **Lunar Client with Minecraft 1.
 
 ## Download
 
-**[Download Penguin 1.9.9 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.9/Penguin-Lunar-1.9.9-Windows.zip)**
+**[Download Penguin 1.9.10 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.10/Penguin-Lunar-1.9.10-Windows.zip)**
 
-Download `Penguin-Lunar-1.9.9-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
+Download `Penguin-Lunar-1.9.10-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
 
 ## First launch
 
@@ -30,7 +30,12 @@ For repeated clicks, enable a clicker, close the menu, then release and hold tha
 
 Closing the controller window does not stop the mod. **Stop Penguin** disables its effects and input handling; already loaded Java classes remain until Minecraft exits.
 
-## New in 1.9.9
+## New in 1.9.10
+
+- Friend additions use consistent account-name matching; adding a saved OFF friend enables it again.
+- Friend label and tracer styling is resolved when drawing, and embedded name formatting cannot override the selected text color.
+
+## Also included
 
 - **Settings > Menu scale:** 50–150%, with a reset button and automatic fitting for small windows.
 - **Visuals > No Debuff:** one toggle for blindness fog/sky obstruction and nausea distortion/overlay. Actual status effects remain.
@@ -49,8 +54,12 @@ Profiles from 1.9.8 still import correctly. New profiles include both visual tog
 - Configurable left/right Windows clickers and smooth aim assist with target filters.
 - **Aim height:** adjust from legs to head, with **Chest (72%)** as the default and a reset button. Enable **Aim vertically** for height correction.
 
+## Multiple Lunar windows
+
+Windows using the same game folder share the saved settings file, but each keeps its own loaded settings. Changes do not currently sync live; the last window to save can overwrite the file. This update does not add synchronization.
+
 ## Compatibility and validation
 
-This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. The release passed **188 automated tests**, and clicker startup was checked in Lunar. Aim smoothing was confirmed in use; the new Constant FOV control and merged No Debuff switch still need live Lunar testing against the enchantment. Adjustable aim placement and click delivery also need normal play testing.
+This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. The release passed **193 automated tests**, and clicker startup was checked in Lunar. Aim smoothing was confirmed in use; the reported intermittent friend-color issue still needs live confirmation, as does Constant FOV against Trap. Adjustable aim placement and click delivery also need normal play testing.
 
 See the included `README.txt` for the full settings and troubleshooting guide. The project uses the [MIT license](LICENSE).
