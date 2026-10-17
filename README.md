@@ -4,9 +4,9 @@ Penguin is a Windows x64 controller and mod for **Lunar Client with Minecraft 1.
 
 ## Download
 
-**[Download Penguin 1.9.14 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.14/Penguin-Lunar-1.9.14-Windows.zip)**
+**[Download Penguin 1.9.15 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.15/Penguin-Lunar-1.9.15-Windows.zip)**
 
-Download `Penguin-Lunar-1.9.14-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
+Download `Penguin-Lunar-1.9.15-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
 
 ## First launch
 
@@ -18,7 +18,7 @@ Download `Penguin-Lunar-1.9.14-Windows.zip` from the [latest release](https://gi
 
 Do not install a second copy of Penguin in the mods folder. When updating from an older Penguin build, restart Minecraft once before loading the new version.
 
-If a previous load reported **FAILED**, restart Minecraft once to clear the old loaded code, then load 1.9.14. Reopening only the controller does not clear that state. Your settings are preserved; no reset is needed.
+If a previous load reported **FAILED**, restart Minecraft once to clear the old loaded code, then load 1.9.15. Reopening only the controller does not clear that state. Your settings are preserved; no reset is needed.
 
 ## Controls
 
@@ -32,7 +32,17 @@ For repeated clicks, enable a clicker, close the menu, then release and hold tha
 
 Closing the controller window does not stop the mod. **Stop Penguin** disables its effects and input handling; already loaded Java classes remain until Minecraft exits.
 
-## New in 1.9.14
+## New in 1.9.15
+
+**Visuals > Ground Zero** gives **yellow wool yellow outlines/tracers**, **black concrete blue outlines/tracers**, and **Block of Raw Gold red outlines/tracers**. The module starts OFF, with all three block types, outlines and tracer lines enabled inside it. Turn it on to draw a line to the **closest block of each type** (up to three lines), or choose **All**.
+
+Ground Zero has separate type toggles and colors, plus line-width and radius controls. It matches exactly `minecraft:yellow_wool`, `minecraft:black_concrete` and `minecraft:raw_gold_block`. While enabled, it owns these three types so generic Block Outlines and Block Tracers do not paint over the selected colors; other types are unaffected. Restart Minecraft and load the new version to use this module.
+
+**Visuals > Block Tracers > Block Outlines preset** makes the outlined block categories your tracer targets. It uses the current **Glass blocks**, **Glass panes** and **Wool** switches under Block Outlines: clear/tinted/all 16 colored glass blocks, clear/all 16 colored panes, and all 16 wool colors, as enabled.
+
+The preset replaces the selected tracer block types, enables Block Tracers and tracer lines, and chooses **Closest**. It is also available in **Choose blocks**. Apply it again after changing the Block Outlines categories; the selection is a snapshot. Existing colored outlines and their settings are unchanged.
+
+## Block tools
 
 - **Trace closest block:** under **Visuals > Block Tracers**, this button enables the finder and tracer lines and selects the closest target. **Tracer target: Closest / All** clearly selects one line or lines to all matches. Fresh settings start with Closest; saved All selections are retained.
 - Closest mode reselects the nearest valid highlighted match each frame, measured from you to the block's center. A mined or removed match no longer holds the line. Behind and offscreen lines still work.
@@ -55,12 +65,13 @@ Block inspection ignores entity displays and colored entity overlays; a real blo
 - **Clues > Clue Scrolls:** chest sorting, optional tier grouping, and collecting matches using hotbar slot 1, with adjustable click delay.
 - **Profiles:** export and import shareable settings files, optionally including saved friend names. Import backs up current settings and leaves automation off until enabled.
 
-Profile formats 1 and 2, exported by 1.9.8 through 1.9.10, remain supported; their behind-text setting defaults OFF. New exports use format 3 and require 1.9.11 or newer.
+Profile formats 1 through 3 remain supported, with Ground Zero starting OFF for older profiles. Formats 1 and 2 also default behind text to OFF. New exports use **profile format 4**, include Ground Zero settings, and require **Penguin 1.9.15**.
 
 ## Included features
 
 - Mining verification, auto-sell and individual alerts with volume controls.
-- Block tracers with closest/all targeting, a searchable block picker, a Vault preset and aimed-block identification.
+- Ground Zero: independent outlines/tracers for yellow wool (yellow), black concrete (blue) and Block of Raw Gold (red), with closest-per-type or all targeting.
+- Block tracers with closest/all targeting, a searchable block picker, Block Outlines and Vault presets, and aimed-block identification.
 - Player nametags and tracers, offscreen indicators, guard/NPC filters, and independent friend appearance settings.
 - Saved friends with individual on/off switches.
 - Configurable left/right Windows clickers and smooth aim assist with target filters.
@@ -68,14 +79,14 @@ Profile formats 1 and 2, exported by 1.9.8 through 1.9.10, remain supported; the
 
 ## Multiple Lunar windows
 
-Restart and load **1.9.14 in every participating window**. Games sharing the same game/config folder sync all saved settings, including module ON/OFF switches, normally within about **0.5 seconds while ticking**. Open menus update too; separate game/config folders remain independent.
+Restart and upgrade **every window sharing the same game/config folder to 1.9.15 together**. Existing settings migrate automatically; older Penguin versions cannot read the updated shared settings after a save. Upgraded windows sync all saved settings, including module ON/OFF switches, normally within about **0.5 seconds while ticking**. Open menus update too; separate game/config folders remain independent.
 
 Independent simultaneous edits merge, including changes to different friends. When windows change the same setting or friend, the last save wins for that change. Loading/stopping Penguin, selected targets and running operations stay local to each game. Changes to clicker controls require a fresh physical release/press; focused gameplay and a held button are still required.
 
-The shared file is `config/penguin-live-settings.json`, initialized once from existing `namelines.json` and `cluesort.json` settings. It becomes the authoritative settings file. Versions before 1.9.11 do not participate in live sync.
+The shared file is `config/penguin-live-settings.json`, initialized once from existing `namelines.json` and `cluesort.json` settings. It becomes the authoritative settings file. Use 1.9.15 in all windows sharing it.
 
 ## Compatibility and validation
 
-This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. **Version 1.9.14 built successfully and passed 228 automated tests.** Live checks of the new block tools are pending. Version 1.9.13 passed **220 automated tests**, loaded successfully in Lunar, and the user confirmed hold-C zoom with Constant FOV. Version 1.9.12 passed a live load/stop/reload check with the Windows clicker ready. Existing automated coverage includes FOV restoration, retained errors, settings synchronization, profile migration and overlays. Multi-window sync, Constant FOV against Trap and the reported intermittent friend-color issue still need live confirmation. Aim smoothing was confirmed in use; adjustable aim placement and click delivery also need normal play testing.
+This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. **Version 1.9.15 built successfully and passed 238 automated tests.** Ground Zero and the new Block Outlines preset still need live Lunar testing. Version 1.9.14 built successfully, passed **228 automated tests**, loaded in Lunar, and its inspector correctly identified black concrete; tracer behavior still needs live confirmation. Version 1.9.13 passed **220 automated tests**, loaded successfully in Lunar, and the user confirmed hold-C zoom with Constant FOV. Version 1.9.12 passed a live load/stop/reload check with the Windows clicker ready. Existing automated coverage includes FOV restoration, retained errors, settings synchronization, profile migration and overlays. Multi-window sync, Constant FOV against Trap and the reported intermittent friend-color issue still need live confirmation. Aim smoothing was confirmed in use; adjustable aim placement and click delivery also need normal play testing.
 
 See the included `README.txt` for the full settings and troubleshooting guide. The project uses the [MIT license](LICENSE).
