@@ -4,9 +4,9 @@ Penguin is a Windows x64 controller and mod for **Lunar Client with Minecraft 1.
 
 ## Download
 
-**[Download Penguin 1.9.11 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.11/Penguin-Lunar-1.9.11-Windows.zip)**
+**[Download Penguin 1.9.12 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.12/Penguin-Lunar-1.9.12-Windows.zip)**
 
-Download `Penguin-Lunar-1.9.11-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
+Download `Penguin-Lunar-1.9.12-Windows.zip` from the [latest release](https://github.com/eksimpkins/penguin/releases/latest). GitHub's automatic **Source code** ZIP does not contain the ready-to-run application. Java is included in the Windows download.
 
 ## First launch
 
@@ -17,6 +17,8 @@ Download `Penguin-Lunar-1.9.11-Windows.zip` from the [latest release](https://gi
 5. Click **Refresh**, select your game, then **Load Penguin**. Keep Minecraft visible while textures reload.
 
 Do not install a second copy of Penguin in the mods folder. When updating from an older Penguin build, restart Minecraft once before loading the new version.
+
+If a previous load reported **FAILED**, restart Minecraft once to clear the old loaded code, then load 1.9.12. Reopening only the controller does not clear that state. Your settings are preserved; no reset is needed.
 
 ## Controls
 
@@ -30,7 +32,13 @@ For repeated clicks, enable a clicker, close the menu, then release and hold tha
 
 Closing the controller window does not stop the mod. **Stop Penguin** disables its effects and input handling; already loaded Java classes remain until Minecraft exits.
 
-## New in 1.9.11
+## Fixed in 1.9.12
+
+- Fixed a Lunar loading failure caused by its extra FOV accessor, which could prevent Penguin from loading even when Constant FOV was OFF. Penguin now selects Minecraft's exact FOV method and leaves the accessor unchanged.
+- The controller preserves the original failure details when a load fails instead of replacing them with a generic repeat-failure message.
+- Existing settings and all 1.9.11 features remain included.
+
+## From 1.9.11
 
 - **Live settings sync:** saved settings and module switches update between upgraded windows using the same game/config folder.
 - **Show '(behind)' text:** a shared toggle under Nametags and Friend Overlay, OFF by default. Edge labels and tracers continue to work normally.
@@ -61,14 +69,14 @@ Profile formats 1 and 2, exported by 1.9.8 through 1.9.10, remain supported; the
 
 ## Multiple Lunar windows
 
-Restart and load **1.9.11 in every participating window**. Games sharing the same game/config folder sync all saved settings, including module ON/OFF switches, normally within about **0.5 seconds while ticking**. Open menus update too; separate game/config folders remain independent.
+Restart and load **1.9.12 in every participating window**. Games sharing the same game/config folder sync all saved settings, including module ON/OFF switches, normally within about **0.5 seconds while ticking**. Open menus update too; separate game/config folders remain independent.
 
 Independent simultaneous edits merge, including changes to different friends. When windows change the same setting or friend, the last save wins for that change. Loading/stopping Penguin, selected targets and running operations stay local to each game. Changes to clicker controls require a fresh physical release/press; focused gameplay and a held button are still required.
 
-The shared file is `config/penguin-live-settings.json`, initialized once from existing `namelines.json` and `cluesort.json` settings. It becomes the authoritative settings file. Older versions do not participate in live sync.
+The shared file is `config/penguin-live-settings.json`, initialized once from existing `namelines.json` and `cluesort.json` settings. It becomes the authoritative settings file. Versions before 1.9.11 do not participate in live sync.
 
 ## Compatibility and validation
 
-This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. Version 1.9.11 passed **213 automated tests**, including two-session sync, overlapping saves, friend-list merging, profile rollback, older profile migration and the optional behind text. Multi-window sync in Lunar and the reported intermittent friend-color issue still need live confirmation, as does Constant FOV against Trap. Aim smoothing was confirmed in use, and clicker startup was checked in an earlier Lunar build; adjustable aim placement and click delivery also need normal play testing.
+This is a preview for the tested Lunar Fabric 1.21.11 configuration; later Lunar updates may require changes. Version 1.9.12 passed **218 automated tests**, including Lunar's duplicate FOV accessor, exact method selection, FOV restoration and retained-error reporting, plus the existing synchronization, profile and overlay checks. The duplicate accessor was confirmed in the affected Lunar game. Version 1.9.12 then loaded, stopped and loaded again successfully in a fresh Lunar Fabric 1.21.11 session, with the Windows clicker reporting ready. Multi-window sync in Lunar and the reported intermittent friend-color issue still need live confirmation, as does Constant FOV against Trap. Aim smoothing was confirmed in use; adjustable aim placement and click delivery also need normal play testing.
 
 See the included `README.txt` for the full settings and troubleshooting guide. The project uses the [MIT license](LICENSE).
