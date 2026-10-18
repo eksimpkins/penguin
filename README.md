@@ -4,7 +4,7 @@ Penguin is a Windows x64 controller and mod for **Lunar Client, Minecraft 1.21.1
 
 ## Download
 
-**[Download Penguin 1.9.20 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.20/Penguin-Lunar-1.9.20-Windows.zip)**
+**[Download Penguin 1.9.21 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.21/Penguin-Lunar-1.9.21-Windows.zip)**
 
 Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is included. GitHub's automatic Source code downloads are not the ready-to-run application.
 
@@ -39,7 +39,11 @@ Reopening the menu restores the category, module, search, scroll positions and e
 
 Open **K > Mining**. **Gen Mining** contains verification, auto-sell and all mining alerts, with independent switches, delays and volume controls. **Block Tracers** contains the shared block list for outlines and tracer lines.
 
-**Choose a mining-circle toggle in Settings; it defaults to Unbound.** During focused gameplay, aim at the first shattercube center block and press your chosen toggle. Penguin holds mining until plain prismarine marks completion, releases mining while smoothly turning right 90 degrees, then holds mining on the next center block. After the fourth distinct finished block it releases mining and stops without a fourth turn. Blocks crossed during a turn do not advance the cycle. Pressing the **toggle again**, **F8** or **Escape**, opening a menu, or losing focus stops it. The circle runs entirely in gameplay and does not require either passive control below.
+**Choose a mining-circle toggle in Settings; it defaults to Unbound.** During focused gameplay, aim at the first shattercube center block and press your chosen toggle. Penguin holds mining until plain prismarine marks completion, releases mining while smoothly turning right 90 degrees, then holds mining on the next center block. After the fourth distinct finished block it releases mining and stops without a fourth turn. Blocks crossed during a turn do not advance the cycle.
+
+**Manual key or mouse-button presses, mouse movement or scrolling directed to that game stop its cycle and release its mining input.** The initial toggle press, held-toggle repeats and releases alone do not cancel it. Manually opening a game menu also stops it. The circle does not require either passive control below.
+
+**Mining can continue while tabbed out.** Switching apps or game instances does not cancel the cycle; app-switch gestures such as Alt+Tab are exceptions to input cancellation. Start a cycle separately in each game window. Each runs independently, and input sent to another window does not stop it.
 
 The existing controls under **Mining > Gen Mining > Actions** remain separate. **Tab in at** chooses **Not at all** (default), **Sea lantern**, **Prismarine** or **After 4 blocks**. The block choices close Minecraft's Escape pause menu when you aim at that type; **After 4 blocks** waits for the passive sequence below. Sea lantern is the early warning at **50 remaining**; prismarine means the center block is **finished**. This does not change which Windows app is in front. The selected action is independent of alarm switches and volumes.
 
@@ -92,7 +96,7 @@ Updated windows sharing the same config folder sync saved settings, normally wit
 
 ## Validation
 
-Version 1.9.20 built successfully and passed all 358 automated tests. Live in-game checks of the new cycle and configurable key remain pending.
+Version 1.9.21 built successfully and passed all 375 automated tests. Live checks of input cancellation, background mining and the full cycle remain pending.
 
 See the included README.txt for additional features and troubleshooting. [MIT license](LICENSE).
 
