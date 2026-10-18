@@ -1,23 +1,25 @@
-# Penguin 1.9.17 — Lunar preview
+# Penguin 1.9.18 — Lunar preview
 
-Download **Penguin-Lunar-1.9.17-Windows.zip** below and extract the entire ZIP. Keep Penguin.exe, app and runtime together. Java is included.
+Download **Penguin-Lunar-1.9.18-Windows.zip** below and extract the entire ZIP. Keep Penguin.exe, app and runtime together. Java is included.
 
 ## Changes
 
-- **Menu memory:** reopening Penguin restores your main menu category, selected module, search and both scroll positions for that game session. This navigation is local to each game, not shared through profiles or live settings. Back from nested pages preserves the parent view.
-- **Mining organization:** the Mining tab now contains **Gen Mining** and **Block Tracers**. Gen Mining groups verification, auto-sell and all mining alerts, with their own switches, delays and volume controls. The former Blocks module is named Block Tracers.
-- **Preset switches:** Ground Zero, Glass/panes/wool and Vault add their block types when switched ON and remove them when OFF, preserving unrelated selected types. Existing custom colors are kept; Ground Zero supplies yellow, blue and red defaults only when a type has no saved color. Partial presets add missing types. Overlapping presets share the same selected block list.
-- **Clearer selection:** selected menu rows have a stronger background/accent, with visible preset switches and separate color swatches.
-- **Clue Scrolls:** minimum move delay lowered to **0.05 seconds (50 ms)**. Existing saved/default timing is unchanged until adjusted. The delay applies between moves, not to the whole inventory sort.
+- **Clearer navigation:** All, Combat, Mining, Visuals and Clues group the modules. Combat contains clickers and Aim Assist; Mining keeps Gen Mining and Block Tracers separate. Friends, Profiles and Settings are separate utility pages.
+- **Smaller settings sections:** Gen Mining has Verify / Auto-sell / Alerts; Aim Assist has Aim / Targets / Advanced; Nametags and Friend Overlay have Display / Style; Block Tracers has Display / Presets. Module ON/OFF controls sit in the settings header where applicable. Gen Mining retains individual switches.
+- **Global search:** search across all modules without changing categories first. Clear with ×, or choose a category to clear search and browse its modules.
+- **More menu memory:** the category, module, query, scroll positions and each module's selected settings section are remembered for that game session. Navigation remains local, outside settings profiles and live synchronization.
+- **Inspector shortcut:** after adding an aimed block to the list, use **Edit selected block color...** to open its RGB editor. Already-selected blocks offer the same shortcut.
+- **Block editing:** the picker opens to your selected blocks; typing searches all available blocks. Its footer explains whether outlines and tracers are active or paused. Color reset clearly identifies the standard amber color.
+- **Small-screen and keyboard polish:** more room for settings, compact alert controls, clearer help text, and focus fixes for scrolling and changing Friends, Profiles and block lists.
 
-Block Tracers keeps the shared outline/tracer list, searchable block names/IDs, RGB color sliders, aimed-block inspector, closest-per-type/all tracing, and **4–512-block horizontal radius**. **O toggles outlines; P toggles tracers.** Enabling a preset while the module is disabled enables both displays; otherwise the display switches and Closest/All choice stay unchanged.
+Block Tracers retains one shared selection for outlines and lines, per-block colors, additive preset switches, independent O/P controls, closest-per-type tracing and the 4–512-block horizontal radius. Ground Zero defaults remain yellow wool in yellow, black concrete in blue and raw gold in red. Saved custom colors and unrelated selected types are preserved. Clue Scrolls retains its 0.05-second minimum delay per move and existing saved timing.
 
 ## Updating
 
-Restart Minecraft once to clear the old loaded code, then load this version with Penguin.exe. Existing settings are preserved; no reset is needed. Use the current version in all windows sharing a settings folder. Profile format remains **5**, supported since 1.9.16; older profile formats 1–4 still import.
+Restart Minecraft once to clear the old loaded code, then load this version with Penguin.exe. Existing settings are preserved; no reset is needed. Use the current version in every window sharing a settings folder. Profile format remains **5**, supported since 1.9.16; older profile formats 1–4 still import.
 
-Requires Windows x64, Lunar Fabric 1.21.11 and Fabric API. On first use, fully close Lunar including its tray icon, open Penguin.exe to prepare attachment, then launch the game and choose Load Penguin. K opens the menu. Stop Penguin disables its effects while Minecraft remains open; loaded classes remain until Minecraft exits.
+Requires Windows x64, Lunar Fabric 1.21.11 and Fabric API. On first use, fully close Lunar including its tray icon, open Penguin.exe to prepare attachment, then launch the game and choose Load Penguin. K opens the menu. Stop Penguin disables its effects while Minecraft remains open; loaded classes remain until Minecraft exits. Closing only the controller does not stop Penguin.
 
-**Validation:** version 1.9.17 built successfully and passed all 270 automated tests. Live checks are pending. Version 1.9.16 passed 260 tests, loaded successfully in Lunar, and the user confirmed the unified menu and 4-block minimum. In-world rendering and the new menu behavior still need live confirmation.
+**Validation:** version 1.9.18 built successfully and passed all 272 automated tests. Live confirmation of the reorganized menu is pending.
 
-Other features remain included: hold-C zoom with Constant FOV, No Debuff, friend styling, live settings sync, clue-scroll tools, mining alerts, clickers and aim assist. SHA256SUMS.txt contains the Windows ZIP checksum.
+The included README.txt covers clicker input, profiles, synchronization, removal, compatibility and other features. SHA256SUMS.txt contains the Windows ZIP checksum.

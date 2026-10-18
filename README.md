@@ -4,7 +4,7 @@ Penguin is a Windows x64 controller and mod for **Lunar Client, Minecraft 1.21.1
 
 ## Download
 
-**[Download Penguin 1.9.17 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.17/Penguin-Lunar-1.9.17-Windows.zip)**
+**[Download Penguin 1.9.18 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.18/Penguin-Lunar-1.9.18-Windows.zip)**
 
 Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is included. GitHub's automatic Source code downloads are not the ready-to-run application.
 
@@ -17,6 +17,21 @@ Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is i
 Do not install another Penguin copy in the mods folder. Restart Minecraft once when updating; closing only the controller does not clear old loaded code or a previous FAILED initialization.
 
 Use the current version in every game window sharing a settings folder. Existing settings are preserved. Versions before 1.9.16 cannot read the current shared settings format.
+
+## Menu organization
+
+**All** shows every module. **Combat** groups the clickers and Aim Assist; **Mining** contains Gen Mining and Block Tracers; **Visuals** contains player overlays and visual controls; **Clues** contains Clue Scrolls. **Friends, Profiles and Settings** are separate utility pages.
+
+Search checks all modules, including those outside the current category. Clear it with the × button, or choose a category to clear the search and browse that category. Module ON/OFF controls sit in the settings-panel header where applicable; Gen Mining keeps individual feature switches.
+
+Settings are split into smaller sections:
+
+- **Gen Mining:** Verify, Auto-sell, Alerts.
+- **Aim Assist:** Aim, Targets, Advanced.
+- **Nametags and Friend Overlay:** Display, Style.
+- **Block Tracers:** Display, Presets.
+
+Reopening the menu restores the category, module, search, scroll positions and each module's selected section for that game session. Navigation stays local to each game and is not exported or synced. Back from a nested page preserves the parent view; explicit Friend Overlay links open that page directly.
 
 ## Mining: Gen Mining and Block Tracers
 
@@ -38,11 +53,9 @@ The horizontal radius goes from **4 to 512 blocks** for any selection, including
 
 Enabling a preset while Block Tracers is disabled enables its outlines and lines. Otherwise it keeps your display switches and Closest/All choice. Existing Ground Zero and outline settings still migrate into the shared list.
 
-**Identify aimed block:** aim within 8 blocks, then open the inspector from Block Tracers. It displays the client-known ID, with Copy block ID and Add to highlighted blocks. Entity decorations do not obscure the block-only check; a real block in front can still be hit, and a server-only original identity cannot be recovered.
+**Identify aimed block:** aim within 8 blocks, then open the inspector from Block Tracers. It displays the client-known ID, with **Copy block ID**, **Add to block list** and **Edit selected block color...** for a selected type. Entity decorations do not obscure the block-only check; a real block in front can still be hit, and a server-only original identity cannot be recovered.
 
-## Menu memory and clue-scroll timing
-
-Closing and reopening Penguin restores the main menu's category, selected module, search and scroll positions in that game session. Navigation stays local to each game and is not included in settings profiles. Back from a nested page preserves its parent view. An explicit link to Friend Overlay opens that page directly, even if the previous search would hide it.
+## Clue-scroll timing
 
 Clue Scrolls now allows a **0.05-second minimum delay per move**. Your saved delay stays unchanged until you adjust it; this is not a promise that an entire inventory sorts in 0.05 seconds.
 
@@ -66,6 +79,6 @@ Updated windows sharing the same config folder sync saved settings, normally wit
 
 ## Validation
 
-Version 1.9.17 built successfully and passed all 270 automated tests. Live checks are pending. Version 1.9.16 passed 260 tests, loaded in Lunar, and its unified menu and 4-block minimum were confirmed by the user. Previous tests cover profiles, synchronization, reversible hooks, FOV, overlays and input; hold-C zoom was confirmed in use.
+Version 1.9.18 built successfully and passed all 272 automated tests. Live confirmation of the reorganized menu is pending.
 
 See the included README.txt for additional features and troubleshooting. [MIT license](LICENSE).
