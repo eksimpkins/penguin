@@ -4,9 +4,13 @@ Penguin is a Windows x64 controller and mod for **Lunar Client, Minecraft 1.21.1
 
 ## Download
 
-**[Download Penguin 1.9.22 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.22/Penguin-Lunar-1.9.22-Windows.zip)**
+**[Download Penguin 1.9.24 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.24/Penguin-Lunar-1.9.24-Windows.zip)**
 
-Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is included. GitHub's automatic Source code downloads are not the ready-to-run application.
+Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is included.
+
+For developers, **[Penguin-Lunar-1.9.24-Source.zip](https://github.com/eksimpkins/penguin/releases/download/v1.9.24/Penguin-Lunar-1.9.24-Source.zip)** contains the buildable Penguin source and tests. GitHub's automatic **Source code** downloads contain this documentation repository, not the application source or ready-to-run program. **[SHA256SUMS.txt](https://github.com/eksimpkins/penguin/releases/download/v1.9.24/SHA256SUMS.txt)** lists checksums for both release ZIPs.
+
+**1.9.24 fixes mining cycles that swing without actually mining**, including starts and restarts with CosmicUtilities installed. It also includes variable smooth turns, verification pause/resume and the optional companion-mod installer introduced in 1.9.23.
 
 ## First launch and updates
 
@@ -17,6 +21,10 @@ Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is i
 Do not install another Penguin copy in the mods folder. Restart Minecraft once when updating; closing only the controller does not clear old loaded code or a previous FAILED initialization.
 
 Use the current version in every game window sharing a settings folder. Existing settings are preserved. Versions before 1.9.22 cannot read the current shared settings format 6 after it is saved.
+
+**Prepare Lunar** also opens an optional-mod chooser, with every checkbox initially unchecked. Select the intended Lunar profile, choose companion mods, then review the downloads before installing. Compatible Fabric 1.21.11 releases and required dependencies are downloaded from Modrinth and checked against their published hashes. Fully close Lunar before installing; these mods load on the next launch. Existing selected mods are backed up before replacement. Unchecked and unrelated mods stay in place.
+
+The chooser supports CosmicPings, CosmicTextures and **CosmicUtilities by Minecoin**. It looks for official Fabric 1.21.11 releases on Modrinth. If CosmicUtilities has no compatible official release, leave it unchecked or use **Choose Utilities JAR…** to select a compatible Minecoin build you already have. Penguin does not port a 1.21.8 JAR automatically. The separate experimental compatibility build used in local testing is **not included in this download**.
 
 ## Menu organization
 
@@ -39,7 +47,9 @@ Reopening the menu restores the category, module, search, scroll positions and e
 
 Open **K > Mining**. **Gen Mining** contains verification, auto-sell and all mining alerts, with independent switches, delays and volume controls. **Block Tracers** contains the shared block list for outlines and tracer lines.
 
-**Choose a mining-circle toggle in Settings; it defaults to Unbound.** During focused gameplay, aim at the first shattercube center block and press your chosen toggle. Penguin holds mining until plain prismarine marks completion, releases mining while smoothly turning right 90 degrees, then holds mining on the next center block. Each turn takes about **1.8 seconds in foreground gameplay**, with a gradual start and gentle stop; background timing can vary with game tick rate. After the fourth distinct finished block it releases mining and stops without a fourth turn. Blocks crossed during a turn do not advance the cycle.
+**Choose a mining-circle toggle in Settings; it defaults to Unbound.** During focused gameplay, aim at the first shattercube center block and press your chosen toggle. Penguin holds mining until plain prismarine marks completion, releases mining while smoothly turning right 90 degrees, then holds mining on the next center block. Each turn takes a variable **1.6–2.1 seconds in foreground gameplay**, with a gradual start and gentle stop; background timing can vary with game tick rate. After the fourth distinct finished block it releases mining and stops without a fourth turn. Blocks crossed during a turn do not advance the cycle.
+
+Each new or resumed block now receives a normal attack press before held mining continues. This fixes the case where the pickaxe swung but the block did not mine, including restarting on the same block and resuming after verification. Turning, verification waits and cancellation release the cycle's mining input.
 
 **Mining > Gen Mining > Alerts > Cycle finished** plays a sound once after the fourth distinct block finishes. It defaults **ON at 100%**, with its own toggle, **0–200% volume** and **Test** button. It works in the background, independently of verification and other alerts. Cancelling or interrupting a cycle does not play this completion sound.
 
@@ -47,9 +57,11 @@ Open **K > Mining**. **Gen Mining** contains verification, auto-sell and all min
 
 **Mining can continue while tabbed out.** Switching apps or game instances does not cancel the cycle; app-switch gestures such as Alt+Tab are exceptions to input cancellation. Start a cycle separately in each game window. Each runs independently, and input sent to another window does not stop it.
 
+**Verification during a cycle:** with **Mining > Gen Mining > Verify** enabled, a server verification prompt pauses mining and turning. Penguin waits for the server to confirm successful verification before resuming the same cycle position and finished-block count. Sending the verification command alone does not resume mining. Automatic resume requires Verify to remain enabled. A blocked command, a 45-second timeout or manual cancellation stops the cycle instead.
+
 The existing controls under **Mining > Gen Mining > Actions** remain separate. **Tab in at** chooses **Not at all** (default), **Sea lantern**, **Prismarine** or **After 4 blocks**. The block choices close Minecraft's Escape pause menu when you aim at that type; **After 4 blocks** waits for the passive sequence below. Sea lantern is the early warning at **50 remaining**; prismarine means the center block is **finished**. This does not change which Windows app is in front. The selected action is independent of alarm switches and volumes.
 
-**Turn 90 degrees at prismarine** is a separate switch, **OFF by default**. It uses the same slower turn, taking about **1.8 seconds in foreground gameplay** with a gradual start and gentle stop, preserving pitch. Blocks crossed during the turn do not trigger alerts or another action; observation resumes after the turn settles. The action is independent of alarm sound. Outside the four-block cycle, look away for one second before it can turn again.
+**Turn 90 degrees at prismarine** is a separate switch, **OFF by default**. It uses the same slower turn, taking a variable **1.6–2.1 seconds in foreground gameplay** with a gradual start and gentle stop, preserving pitch. Blocks crossed during the turn do not trigger alerts or another action; observation resumes after the turn settles. The action is independent of alarm sound. Outside the four-block cycle, look away for one second before it can turn again.
 
 The shattercube warning stages are sea lantern at **50**, dark prismarine at **25**, and prismarine bricks at **10** remaining. Only **plain prismarine** counts as finished.
 
@@ -98,7 +110,14 @@ Updated windows sharing the same config folder sync saved settings, normally wit
 
 ## Validation
 
-Version 1.9.22 built successfully; all 382 automated tests passed. Live checks of the completion alert and slower turns remain pending.
+Penguin 1.9.24 built successfully and passed **429 automated tests across 50 suites**, including mining-start and input regressions. Live testing on Lunar Fabric 1.21.11 confirmed:
+
+- Starting, stopping with F8 and restarting on the same block all mine correctly.
+- Movement keys, mouse clicks, mouse movement and scrolling each cancel the cycle; normal mining still works afterward.
+- A full background cycle mines four blocks, turns three times and finishes with one completion alert.
+- A real verification prompt pauses mining, which resumes after verification succeeds.
+
+Companion download checks, dependency staging and installation of a locally supplied CosmicUtilities build passed. That separate build also passed startup and Gang Focus checks; other CosmicUtilities features have not all been checked in game. It is not bundled with Penguin.
 
 See the included README.txt for additional features and troubleshooting. [MIT license](LICENSE).
 
