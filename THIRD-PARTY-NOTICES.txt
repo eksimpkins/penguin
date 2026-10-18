@@ -1,0 +1,32 @@
+PENGUIN - THIRD-PARTY NOTICES
+
+COSMIC UTILITIES
+Original author: Minecoin
+Original project: https://modrinth.com/mod/cosmicutilities
+Fabric mod ID: prisonsutil
+Original version: 1.5
+Original license metadata: All-Rights-Reserved
+
+Included compatibility build:
+cosmicutilities-1.5-local-compat-1.21.11-experimental-r2.jar
+SHA-256: bccd45dafbece06cc2ac50bb452271e4e5ec7749ce3bfd1e36dc0ebeb3717711
+
+This is an unofficial Minecraft 1.21.11 compatibility rebuild of Minecoin's
+CosmicUtilities 1.5, not an official Minecoin release. Original attribution,
+assets and All Rights Reserved metadata are retained. Compatibility changes
+include Minecraft rendering/API adaptations, the offscreen G Focus marker fix,
+and a fix for errors while reloading saved cooldown settings.
+
+Penguin's MIT license applies to Penguin code only. It does not relicense
+CosmicUtilities, its assets or its compatibility build, and grants no additional
+rights to those materials. The original rights holder retains their rights.
+
+Prepare Lunar installs this build only when CosmicUtilities is selected. A local
+compatible Minecoin JAR may be selected instead. The bundled build and any local
+override remain subject to their respective third-party terms.
+
+OTHER COMPANION MODS AND RUNTIME COMPONENTS
+CosmicPings, CosmicTextures and required dependencies are obtained separately
+from compatible official Modrinth releases when selected or required. Their
+own authorship and license terms apply. Java runtime legal notices and notices
+included within other packaged dependencies remain applicable.

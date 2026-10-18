@@ -1,26 +1,36 @@
-# Penguin 1.9.24 — Lunar preview
+# Penguin 1.9.25 — Lunar preview
 
-Download **[Penguin-Lunar-1.9.24-Windows.zip](https://github.com/eksimpkins/penguin/releases/download/v1.9.24/Penguin-Lunar-1.9.24-Windows.zip)** and extract the entire ZIP. Keep Penguin.exe, app and runtime together. Java is included.
+Download **[Penguin-Lunar-1.9.25-Windows.zip](https://github.com/eksimpkins/penguin/releases/download/v1.9.25/Penguin-Lunar-1.9.25-Windows.zip)** and extract the entire ZIP. Keep Penguin.exe, app and runtime together. Java is included.
 
-Developers can use the attached **Penguin-Lunar-1.9.24-Source.zip** for the buildable source and tests. GitHub's automatic **Source code** downloads contain only this documentation repository. **SHA256SUMS.txt** covers both release ZIPs.
+Developers can use the attached **Penguin-Lunar-1.9.25-Source.zip** for the buildable Penguin source and tests. GitHub's automatic **Source code** downloads contain only this documentation repository. **SHA256SUMS.txt** covers both release ZIPs.
 
 ## Changes
 
-- **Mining starts and restarts correctly:** fixed cycles that swung the pickaxe without mining, including with CosmicUtilities installed. Each new or resumed block gets a normal attack press before held mining continues. Turning, verification waits and cancellation release mining input and clear pending cycle presses.
-- **Smoother mining turns with variable speed:** each 90-degree turn starts immediately and takes a randomly selected **1.6–2.1 seconds** in foreground gameplay. The pace follows one smooth curve rather than changing abruptly from frame to frame. Fixed conflicting tick/render updates that could make foreground turns hitch. Background instances continue through game ticks; throttling can lengthen their turns. There is **no added delay** before turning.
-- **Optional mods in Prepare Lunar:** choose a Lunar profile and select companion mods, all initially unchecked. Review/download first, then install with Lunar fully closed. Official compatible releases come from Modrinth with file-size, SHA-512 and Fabric metadata checks. Required dependencies are included. Existing versions of selected mods are backed up; unrelated and unchecked mods remain untouched. These companion mods load on the next game launch.
-- **Verification during a mining cycle:** with **Mining > Gen Mining > Verify** enabled, a verification prompt pauses mining and turning. Penguin resumes the same cycle position and finished-block count only after the server confirms successful verification; sending the command alone does not resume it. Verify must remain enabled. A blocked command, a 45-second timeout or manual cancellation stops the cycle instead.
+- **CosmicUtilities is included in Prepare Lunar.** Checking CosmicUtilities now selects the tested Minecoin **1.5 experimental-r2 compatibility build for Minecraft 1.21.11**. Friends no longer need to find or select a separate JAR. This unofficial port fixes the G Focus marker crash when a player leaves view and errors while loading saved cooldown settings.
+- **Local JAR choices still work.** Choose Utilities JAR… selects a different compatible Minecoin build; Use included build returns to the bundled version. Penguin does not automatically port other 1.21.8 JARs.
+- **Installation remains optional.** All companion choices start unchecked. Select the intended Lunar profile, review the files, then install with Lunar fully closed. Required dependencies are checked; previous versions of selected mods are backed up. Unchecked and unrelated mods remain in place. CosmicPings and CosmicTextures continue to use compatible official Modrinth releases.
 
-The optional chooser supports CosmicPings, CosmicTextures and **CosmicUtilities by Minecoin**. If CosmicUtilities has no official Fabric 1.21.11 release available, leave it unchecked or use **Choose Utilities JAR…** to select a compatible Minecoin build you already have. Penguin does not automatically port a 1.21.8 JAR. The separate experimental compatibility build used for local testing is **not included in this release**.
+The included CosmicUtilities build is **not an official Minecoin release**. Original author attribution and **All Rights Reserved** metadata remain intact. Penguin's MIT license does not relicense CosmicUtilities. See the included **THIRD-PARTY-NOTICES.txt** for its identity and attribution.
 
-The completion alert remains under **Mining > Gen Mining > Alerts > Cycle finished**, with its own toggle, 0–200% volume and Test button. Background mining and manual-input cancellation remain supported. Choose the mining-cycle toggle in Settings; it starts Unbound. Only plain prismarine means a block is finished. Sea lantern (50), dark prismarine (25) and prismarine bricks (10) are warning stages.
+This release keeps the 1.9.24 mining-start fix, smooth variable-speed turns, background cycles, manual-input cancellation, completion alerts and verification pause/resume. Existing settings and bindings are preserved.
 
-## Updating
+## Installing or updating
 
-Restart Minecraft to clear previously loaded Penguin code, then load this version. Installing companion mods requires fully closing Lunar, including its tray icon, first. Select the correct profile in Prepare Lunar; the normal .minecraft mods folder is not always Lunar's mod location.
+1. Extract the new Windows ZIP and open Penguin.exe.
+2. Fully close Minecraft and the Lunar launcher, including its tray icon.
+3. Open **Prepare Lunar**, choose the intended **Fabric 1.21.11** profile and check **CosmicUtilities**. Review the selected files, then install. The old Utilities JAR is backed up before replacement.
+4. Launch Lunar Fabric 1.21.11, then select the game in Penguin and choose **Load Penguin**.
 
-Shared settings remain **format 6**, and exported profiles remain **format 8** (compatible with Penguin 1.9.22 and newer). Existing settings and bindings are preserved. Older profiles still import. Use the current Penguin version in every game window sharing a settings folder.
+Companion mods load when Minecraft starts. Installing into the normal .minecraft mods folder may not affect Lunar; use the profile shown by Prepare Lunar. Restart Minecraft once when updating Penguin to clear previously loaded code.
 
-**Validation:** all **429 automated tests across 50 suites** passed. Live testing confirmed mining start/stop/restart on the same block, all four manual cancellation methods with normal mining afterward, a full background cycle with three turns and one completion alert, and pause/resume through a real verification prompt. Companion downloads, dependency staging and installation of a locally supplied CosmicUtilities build passed. That separate build passed startup and Gang Focus checks; this is not a full validation of every CosmicUtilities feature.
+Shared settings remain **format 6**, and exported profiles remain **format 8** (compatible with Penguin 1.9.22 and newer). Older profiles still import. Use the current Penguin version in every game window sharing a settings folder.
+
+## Validation
+
+**All 437 automated tests across 51 suites passed.** Eight new tests cover the bundled artifact, integrity checks, dependency handling, local overrides, backups, duplicates and source labels. An isolated installation using the controller JAR and included Java runtime confirmed the exact fixed build without a Utilities download, preserved installed files during review, backed up the old JAR, reused compatible Fabric API and created no duplicates on repeat installation. Independent review found no blockers.
+
+The preceding 1.9.24 release passed **429 automated tests across 50 suites**. Live checks confirmed mining start/stop/restart on the same block, all four manual cancellation methods with normal mining afterward, a full background cycle with three turns and one completion alert, and pause/resume through a real verification prompt.
+
+The exact bundled CosmicUtilities **experimental-r2** JAR previously reached the Lunar Fabric 1.21.11 main menu without saved-settings errors. The G Focus offscreen check passed before r2; that code is unchanged in r2. Item-overlay, damage-indicator and HUD checks remain pending. These results do not claim that every CosmicUtilities feature has been tested.
 
 Requires Windows x64, Lunar Fabric 1.21.11 and Fabric API. K opens the menu. Stop Penguin disables its effects while Minecraft remains open; loaded classes remain until Minecraft exits. Closing only the controller does not stop Penguin.
