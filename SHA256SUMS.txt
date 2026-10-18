@@ -1,2 +1,2 @@
-33fa930d38b45acda500668f60c6fe4f516507e62c5676116aa65b612b5c9d5b  Penguin-Lunar-1.9.25-Windows.zip
-dac2f76659beda112afb806892ea3f2648855ddcd5fcf06087e6bf222f905607  Penguin-Lunar-1.9.25-Source.zip
+6f81a29e40e2c8b7fc3555fd092d8c85bdccc979810ec23259c698847e4f9450  Penguin-Lunar-1.9.26-Windows.zip
+4dca6087e1a8d80e8831b22bd9d9ee614572975ce054cd51331152bbd3f3b019  Penguin-Lunar-1.9.26-Source.zip

@@ -1,18 +1,18 @@
-# Penguin 1.9.25 — Lunar preview
+# Penguin 1.9.26 — Lunar preview
 
-Download **[Penguin-Lunar-1.9.25-Windows.zip](https://github.com/eksimpkins/penguin/releases/download/v1.9.25/Penguin-Lunar-1.9.25-Windows.zip)** and extract the entire ZIP. Keep Penguin.exe, app and runtime together. Java is included.
+Download **[Penguin-Lunar-1.9.26-Windows.zip](https://github.com/eksimpkins/penguin/releases/download/v1.9.26/Penguin-Lunar-1.9.26-Windows.zip)** and extract the entire ZIP. Keep Penguin.exe, app and runtime together. Java is included.
 
-Developers can use the attached **Penguin-Lunar-1.9.25-Source.zip** for the buildable Penguin source and tests. GitHub's automatic **Source code** downloads contain only this documentation repository. **SHA256SUMS.txt** covers both release ZIPs.
+Developers can use the attached **Penguin-Lunar-1.9.26-Source.zip** for the buildable Penguin source and tests. GitHub's automatic **Source code** downloads contain only this documentation repository. **SHA256SUMS.txt** covers both release ZIPs.
 
 ## Changes
 
-- **CosmicUtilities is included in Prepare Lunar.** Checking CosmicUtilities now selects the tested Minecoin **1.5 experimental-r2 compatibility build for Minecraft 1.21.11**. Friends no longer need to find or select a separate JAR. This unofficial port fixes the G Focus marker crash when a player leaves view and errors while loading saved cooldown settings.
-- **Local JAR choices still work.** Choose Utilities JAR… selects a different compatible Minecoin build; Use included build returns to the bundled version. Penguin does not automatically port other 1.21.8 JARs.
-- **Installation remains optional.** All companion choices start unchecked. Select the intended Lunar profile, review the files, then install with Lunar fully closed. Required dependencies are checked; previous versions of selected mods are backed up. Unchecked and unrelated mods remain in place. CosmicPings and CosmicTextures continue to use compatible official Modrinth releases.
+- **More reliable Prepare Lunar detection.** Some already-used Fabric profiles were incorrectly blocked with “The selected profile's Fabric Loader version is unknown.” Penguin now recognizes Lunar's startup entries in the selected profile's boot log and checks the version again when you review the mods. Detection stays specific to that profile. Compatibility checks remain in place; an unknown version is not silently treated as compatible.
+- **The fixed CosmicUtilities build is still included.** Check CosmicUtilities to install the same Minecoin **1.5 experimental-r2 compatibility build for Minecraft 1.21.11**, with the G Focus and saved-settings fixes. No separate Utilities download is needed. Choose Utilities JAR… still accepts a different compatible build, and Use included build returns to the bundled version.
+- **Installation stays optional.** All companion choices start unchecked. Review the files and fully close Lunar before installing. Required dependencies are checked; previous versions of selected mods are backed up. Unchecked and unrelated mods remain in place. CosmicPings and CosmicTextures continue to use compatible official Modrinth releases.
 
 The included CosmicUtilities build is **not an official Minecoin release**. Original author attribution and **All Rights Reserved** metadata remain intact. Penguin's MIT license does not relicense CosmicUtilities. See the included **THIRD-PARTY-NOTICES.txt** for its identity and attribution.
 
-This release keeps the 1.9.24 mining-start fix, smooth variable-speed turns, background cycles, manual-input cancellation, completion alerts and verification pause/resume. Existing settings and bindings are preserved.
+This release changes the installer. It keeps the 1.9.24 mining-start fix, smooth variable-speed turns, background cycles, manual-input cancellation, completion alerts and verification pause/resume. Existing settings and bindings are preserved.
 
 ## Installing or updating
 
@@ -27,7 +27,11 @@ Shared settings remain **format 6**, and exported profiles remain **format 8** (
 
 ## Validation
 
-**All 437 automated tests across 51 suites passed.** Eight new tests cover the bundled artifact, integrity checks, dependency handling, local overrides, backups, duplicates and source labels. An isolated installation using the controller JAR and included Java runtime confirmed the exact fixed build without a Utilities download, preserved installed files during review, backed up the old JAR, reused compatible Fabric API and created no duplicates on repeat installation. Independent review found no blockers.
+**Penguin 1.9.26 passed all 456 automated tests across 52 suites, with no failures, errors or skipped tests.** Nineteen new tests cover Lunar's actual boot-log format, late startup entries, newer logs, conflicts, wrong game versions, stale profile choices, stock-profile installation, loader changes after review and rejection of logs from another profile or a global folder. Independent review found no blockers.
+
+An isolated check with the final controller JAR and included Java runtime used a copy of a real Lunar boot log. It refreshed a previously unknown profile, installed the exact fixed CosmicUtilities r2 JAR, preserved installed files during review, backed up the old JAR, reused Fabric API and avoided duplicates on a repeat installation. The affected friends' computers have not yet been retested.
+
+The preceding 1.9.25 release passed **437 automated tests across 51 suites**. An isolated installation using the controller JAR and included Java runtime confirmed the exact fixed build without a Utilities download, preserved installed files during review, backed up the old JAR, reused compatible Fabric API and created no duplicates on repeat installation. Independent review found no blockers.
 
 The preceding 1.9.24 release passed **429 automated tests across 50 suites**. Live checks confirmed mining start/stop/restart on the same block, all four manual cancellation methods with normal mining afterward, a full background cycle with three turns and one completion alert, and pause/resume through a real verification prompt.
 
