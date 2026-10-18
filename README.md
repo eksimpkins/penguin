@@ -4,7 +4,7 @@ Penguin is a Windows x64 controller and mod for **Lunar Client, Minecraft 1.21.1
 
 ## Download
 
-**[Download Penguin 1.9.21 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.21/Penguin-Lunar-1.9.21-Windows.zip)**
+**[Download Penguin 1.9.22 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.22/Penguin-Lunar-1.9.22-Windows.zip)**
 
 Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is included. GitHub's automatic Source code downloads are not the ready-to-run application.
 
@@ -16,7 +16,7 @@ Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is i
 
 Do not install another Penguin copy in the mods folder. Restart Minecraft once when updating; closing only the controller does not clear old loaded code or a previous FAILED initialization.
 
-Use the current version in every game window sharing a settings folder. Existing settings are preserved. Versions before 1.9.20 cannot read the current shared settings format 5 after it is saved.
+Use the current version in every game window sharing a settings folder. Existing settings are preserved. Versions before 1.9.22 cannot read the current shared settings format 6 after it is saved.
 
 ## Menu organization
 
@@ -39,7 +39,9 @@ Reopening the menu restores the category, module, search, scroll positions and e
 
 Open **K > Mining**. **Gen Mining** contains verification, auto-sell and all mining alerts, with independent switches, delays and volume controls. **Block Tracers** contains the shared block list for outlines and tracer lines.
 
-**Choose a mining-circle toggle in Settings; it defaults to Unbound.** During focused gameplay, aim at the first shattercube center block and press your chosen toggle. Penguin holds mining until plain prismarine marks completion, releases mining while smoothly turning right 90 degrees, then holds mining on the next center block. After the fourth distinct finished block it releases mining and stops without a fourth turn. Blocks crossed during a turn do not advance the cycle.
+**Choose a mining-circle toggle in Settings; it defaults to Unbound.** During focused gameplay, aim at the first shattercube center block and press your chosen toggle. Penguin holds mining until plain prismarine marks completion, releases mining while smoothly turning right 90 degrees, then holds mining on the next center block. Each turn takes about **1.8 seconds in foreground gameplay**, with a gradual start and gentle stop; background timing can vary with game tick rate. After the fourth distinct finished block it releases mining and stops without a fourth turn. Blocks crossed during a turn do not advance the cycle.
+
+**Mining > Gen Mining > Alerts > Cycle finished** plays a sound once after the fourth distinct block finishes. It defaults **ON at 100%**, with its own toggle, **0–200% volume** and **Test** button. It works in the background, independently of verification and other alerts. Cancelling or interrupting a cycle does not play this completion sound.
 
 **Manual key or mouse-button presses, mouse movement or scrolling directed to that game stop its cycle and release its mining input.** The initial toggle press, held-toggle repeats and releases alone do not cancel it. Manually opening a game menu also stops it. The circle does not require either passive control below.
 
@@ -47,7 +49,7 @@ Open **K > Mining**. **Gen Mining** contains verification, auto-sell and all min
 
 The existing controls under **Mining > Gen Mining > Actions** remain separate. **Tab in at** chooses **Not at all** (default), **Sea lantern**, **Prismarine** or **After 4 blocks**. The block choices close Minecraft's Escape pause menu when you aim at that type; **After 4 blocks** waits for the passive sequence below. Sea lantern is the early warning at **50 remaining**; prismarine means the center block is **finished**. This does not change which Windows app is in front. The selected action is independent of alarm switches and volumes.
 
-**Turn 90 degrees at prismarine** is a separate switch, **OFF by default**. It turns right gradually over about a second with eased acceleration and braking, preserving pitch. Blocks crossed during the turn do not trigger alerts or another action; observation resumes after the turn settles. The action is independent of alarm sound. Outside the four-block cycle, look away for one second before it can turn again.
+**Turn 90 degrees at prismarine** is a separate switch, **OFF by default**. It uses the same slower turn, taking about **1.8 seconds in foreground gameplay** with a gradual start and gentle stop, preserving pitch. Blocks crossed during the turn do not trigger alerts or another action; observation resumes after the turn settles. The action is independent of alarm sound. Outside the four-block cycle, look away for one second before it can turn again.
 
 The shattercube warning stages are sea lantern at **50**, dark prismarine at **25**, and prismarine bricks at **10** remaining. Only **plain prismarine** counts as finished.
 
@@ -90,13 +92,13 @@ Clue Scrolls now allows a **0.05-second minimum delay per move**. Your saved del
 
 ## Profiles and multiple windows
 
-Export/import settings through Profiles. Friend names are optional on export and import. Imports preview the change, create a backup, stop the running mining cycle and leave automation off until enabled, including Gen Mining's passive tab-in and turning actions. Profile formats **1–6** still import; new exports use **format 7** and require **1.9.20**. Per-block colors, line width, Gen Mining controls and the mining-cycle binding are included.
+Export/import settings through Profiles. Friend names are optional on export and import. Imports preview the change, create a backup, stop the running mining cycle and leave automation off until enabled, including Gen Mining's passive tab-in and turning actions. Profile formats **1–7** still import; new exports use **format 8** and require **1.9.22**. Per-block colors, line width, Gen Mining controls, the mining-cycle binding and completion-alert settings are included. Older settings and profiles default the new completion alert to ON at 100%.
 
 Updated windows sharing the same config folder sync saved settings, normally within about half a second while ticking. Different folders remain independent. Simultaneous independent changes merge; competing edits to the same setting use the last save. Loading/stopping, selected live targets and running operations remain local. The shared file is config/penguin-live-settings.json.
 
 ## Validation
 
-Version 1.9.21 built successfully and passed all 375 automated tests. Live checks of input cancellation, background mining and the full cycle remain pending.
+Version 1.9.22 built successfully; all 382 automated tests passed. Live checks of the completion alert and slower turns remain pending.
 
 See the included README.txt for additional features and troubleshooting. [MIT license](LICENSE).
 
