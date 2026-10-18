@@ -79,6 +79,6 @@ Updated windows sharing the same config folder sync saved settings, normally wit
 
 ## Validation
 
-Version 1.9.18 built successfully and passed all 272 automated tests. Live confirmation of the reorganized menu is pending.
+Version 1.9.18 built successfully and passed all 276 automated tests. The corrected build loaded in Lunar Fabric 1.21.11 with the Windows clicker ready. Live checks confirmed the menu opens, Mining keeps its two modules separate, the compact alert controls fit, and closing/reopening restores the selected section.
 
 See the included README.txt for additional features and troubleshooting. [MIT license](LICENSE).

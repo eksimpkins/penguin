@@ -20,6 +20,6 @@ Restart Minecraft once to clear the old loaded code, then load this version with
 
 Requires Windows x64, Lunar Fabric 1.21.11 and Fabric API. On first use, fully close Lunar including its tray icon, open Penguin.exe to prepare attachment, then launch the game and choose Load Penguin. K opens the menu. Stop Penguin disables its effects while Minecraft remains open; loaded classes remain until Minecraft exits. Closing only the controller does not stop Penguin.
 
-**Validation:** version 1.9.18 built successfully and passed all 272 automated tests. Live confirmation of the reorganized menu is pending.
+**Validation:** version 1.9.18 built successfully and passed all 276 automated tests. The corrected build loaded in Lunar Fabric 1.21.11 with the Windows clicker ready. Live checks confirmed the menu opens, Mining keeps its two modules separate, the compact alert controls fit, and closing/reopening restores the selected section.
 
 The included README.txt covers clicker input, profiles, synchronization, removal, compatibility and other features. SHA256SUMS.txt contains the Windows ZIP checksum.
