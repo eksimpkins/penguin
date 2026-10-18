@@ -1,24 +1,25 @@
-# Penguin 1.9.19 — Lunar preview
+# Penguin 1.9.20 — Lunar preview
 
-Download **Penguin-Lunar-1.9.19-Windows.zip** below and extract the entire ZIP. Keep Penguin.exe, app and runtime together. Java is included.
+Download **Penguin-Lunar-1.9.20-Windows.zip** below and extract the entire ZIP. Keep Penguin.exe, app and runtime together. Java is included.
 
 ## Changes
 
-- **Mining > Gen Mining > Actions:** **Tab in at** chooses **Not at all** (default), **Sea lantern**, **Prismarine** or **After 4 blocks**. The block choices close Minecraft's Escape pause menu on that type; the four-block choice waits for the full cycle. Sea lantern gives an early return at **50 remaining**; prismarine marks a **finished center block**. This controls the menu inside Minecraft; it does not switch Windows apps.
-- **Turn 90 degrees at prismarine** adds a separate switch, **OFF by default**, for a 90-degree right turn when looking at prismarine.
-- For a shattercube cycle, choose **Tab in at: After 4 blocks** and enable **Turn 90 degrees at prismarine**. The first three prismarine completions turn right 90 degrees with Escape open; the fourth closes Escape without another turn. Sea lanterns never count. Only different block positions count; revisits are ignored, and a new position already showing prismarine counts without a look-away delay. Closing Escape manually, choosing another tab-in option, disabling the turn switch, or changing worlds resets the count.
-- These actions are independent of block alarm switches and sound volumes. Existing alert controls remain available.
-- Warning stages remain separate from completion: sea lantern is **50**, dark prismarine **25**, and prismarine bricks **10** remaining. Only **plain prismarine** triggers a completion turn or advances the four-block cycle.
-- The new settings save and sync between updated game windows. Settings profiles include them, but importing a profile resets Tab in at to Not at all and leaves turning OFF. The running completion count stays local to each game.
+- **Independent Message Alerts:** the new **General > Message Alerts** module has its own toggle, volume and Test button. It works with Gen Mining disabled; existing message-alert settings are preserved.
+- **Configurable mining-circle toggle:** choose a key in **Settings**; it defaults to **Unbound**. Aim at the first shattercube center block during focused gameplay and press your chosen toggle. Penguin holds mining until plain prismarine marks completion, releases mining for an eased 90-degree right turn, then holds mining on the next block. It stops after four distinct finished blocks, with three turns.
+- **Immediate stop controls:** the toggle again, F8, Escape, any open menu, or loss of game focus stops the circle and releases its mining input. The cycle never opens or closes Escape to keep mining.
+- **Smoother passive turns:** the separate automatic 90-degree setting now eases in and out over about a second, preserving pitch.
+- **Stable block detection:** blocks crossed during the turn do not trigger an alarm or advance the mining cycle. Detection resumes after the turn settles.
+- **Existing controls stay together:** open **Mining > Gen Mining > Actions**. **Tab in at** offers **Not at all**, **Sea lantern**, **Prismarine** and **After 4 blocks** for the existing Escape-menu behavior. Passive turning remains a separate switch and defaults **OFF**. Neither setting is required for the mining circle.
 
-The reorganized menu, session navigation memory, independent Gen Mining controls and separate Block Tracers module remain. Ground Zero presets and saved per-block colors are preserved.
+Only **plain prismarine** counts as a finished block. Sea lantern (**50 remaining**), dark prismarine (**25**) and prismarine bricks (**10**) are warning stages. Actions remain independent of alarm switches and volumes. Running progress stays local and is not saved or shared in profiles.
 
 ## Updating
 
-Restart Minecraft once to clear the old loaded code, then load this version with Penguin.exe. Existing settings are preserved; no reset is needed. Update every window sharing a settings folder together. This release writes shared settings **format 4** and profile exports **format 6**, which require **1.9.19**. Older shared settings migrate automatically; profile formats **1–5** still import.
+Restart Minecraft once to clear the old loaded code, then load this version with Penguin.exe. Existing settings are preserved. Update every window sharing a settings folder together. Shared settings use **format 5** and profile exports use **format 7**, requiring **1.9.20**. Older shared settings migrate automatically; profile formats **1–6** still import. Existing installs start with the mining-cycle key unbound. Profile import stops any running cycle and leaves passive tab-in and turning disabled.
 
 Requires Windows x64, Lunar Fabric 1.21.11 and Fabric API. On first use, fully close Lunar including its tray icon, open Penguin.exe to prepare attachment, then launch the game and choose Load Penguin. K opens the menu. Stop Penguin disables its effects while Minecraft remains open; loaded classes remain until Minecraft exits. Closing only the controller does not stop Penguin.
 
-**Validation:** the revised 1.9.19 build passed all 319 automated tests and loaded successfully in Lunar Fabric 1.21.11. The combined selector's four choices and the default OFF turning switch were checked in-game. A full in-world shattercube run remains unverified.
+**Validation:** version 1.9.20 built successfully and passed all 358 automated tests. Live in-game checks of the new cycle and configurable key remain pending.
 
-The included README.txt covers clicker input, profiles, synchronization, removal, compatibility and other features. SHA256SUMS.txt contains the Windows ZIP checksum.
+The included README.txt covers controls, profiles, synchronization and troubleshooting. SHA256SUMS.txt contains the Windows ZIP checksum.
+

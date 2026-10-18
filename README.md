@@ -4,7 +4,7 @@ Penguin is a Windows x64 controller and mod for **Lunar Client, Minecraft 1.21.1
 
 ## Download
 
-**[Download Penguin 1.9.19 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.19/Penguin-Lunar-1.9.19-Windows.zip)**
+**[Download Penguin 1.9.20 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.20/Penguin-Lunar-1.9.20-Windows.zip)**
 
 Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is included. GitHub's automatic Source code downloads are not the ready-to-run application.
 
@@ -16,11 +16,11 @@ Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is i
 
 Do not install another Penguin copy in the mods folder. Restart Minecraft once when updating; closing only the controller does not clear old loaded code or a previous FAILED initialization.
 
-Use the current version in every game window sharing a settings folder. Existing settings are preserved. Versions before 1.9.19 cannot read the current shared settings format after it is saved.
+Use the current version in every game window sharing a settings folder. Existing settings are preserved. Versions before 1.9.20 cannot read the current shared settings format 5 after it is saved.
 
 ## Menu organization
 
-**All** shows every module. **Combat** groups the clickers and Aim Assist; **Mining** contains Gen Mining and Block Tracers; **Visuals** contains player overlays and visual controls; **Clues** contains Clue Scrolls. **Friends, Profiles and Settings** are separate utility pages.
+**All** shows every module. **General** contains Message Alerts; **Combat** groups the clickers and Aim Assist; **Mining** contains Gen Mining and Block Tracers; **Visuals** contains player overlays and visual controls; **Clues** contains Clue Scrolls. **Friends, Profiles and Settings** are separate utility pages.
 
 Search checks all modules, including those outside the current category. Clear it with the × button, or choose a category to clear the search and browse that category. Module ON/OFF controls sit in the settings-panel header where applicable; Gen Mining keeps individual feature switches.
 
@@ -33,17 +33,21 @@ Settings are split into smaller sections:
 
 Reopening the menu restores the category, module, search, scroll positions and each module's selected section for that game session. Navigation stays local to each game and is not exported or synced. Back from a nested page preserves the parent view; explicit Friend Overlay links open that page directly.
 
+**General > Message Alerts** has its own enabled switch, volume and Test button. Incoming private-message alerts work with Gen Mining and its mining cycle disabled. Your existing message-alert settings are preserved.
+
 ## Mining: Gen Mining and Block Tracers
 
 Open **K > Mining**. **Gen Mining** contains verification, auto-sell and all mining alerts, with independent switches, delays and volume controls. **Block Tracers** contains the shared block list for outlines and tracer lines.
 
-Under **Mining > Gen Mining > Actions**, **Tab in at** chooses **Not at all** (default), **Sea lantern**, **Prismarine** or **After 4 blocks**. The block choices close Minecraft's Escape pause menu when you aim at that type; **After 4 blocks** waits for the shattercube cycle below. Sea lantern is the early warning at **50 remaining**; prismarine means the center block is **finished**. This does not change which Windows app is in front. The selected action is independent of alarm switches and volumes.
+**Choose a mining-circle toggle in Settings; it defaults to Unbound.** During focused gameplay, aim at the first shattercube center block and press your chosen toggle. Penguin holds mining until plain prismarine marks completion, releases mining while smoothly turning right 90 degrees, then holds mining on the next center block. After the fourth distinct finished block it releases mining and stops without a fourth turn. Blocks crossed during a turn do not advance the cycle. Pressing the **toggle again**, **F8** or **Escape**, opening a menu, or losing focus stops it. The circle runs entirely in gameplay and does not require either passive control below.
 
-**Turn 90 degrees at prismarine** is a separate switch, **OFF by default**. Enable it to turn 90 degrees to the right when looking at prismarine, independently of the alarm sound. Outside the four-block cycle, look away for one second before it can turn again.
+The existing controls under **Mining > Gen Mining > Actions** remain separate. **Tab in at** chooses **Not at all** (default), **Sea lantern**, **Prismarine** or **After 4 blocks**. The block choices close Minecraft's Escape pause menu when you aim at that type; **After 4 blocks** waits for the passive sequence below. Sea lantern is the early warning at **50 remaining**; prismarine means the center block is **finished**. This does not change which Windows app is in front. The selected action is independent of alarm switches and volumes.
+
+**Turn 90 degrees at prismarine** is a separate switch, **OFF by default**. It turns right gradually over about a second with eased acceleration and braking, preserving pitch. Blocks crossed during the turn do not trigger alerts or another action; observation resumes after the turn settles. The action is independent of alarm sound. Outside the four-block cycle, look away for one second before it can turn again.
 
 The shattercube warning stages are sea lantern at **50**, dark prismarine at **25**, and prismarine bricks at **10** remaining. Only **plain prismarine** counts as finished.
 
-For a shattercube cycle, choose **Tab in at: After 4 blocks** and enable **Turn 90 degrees at prismarine**. The first three prismarine completions turn right 90 degrees and leave Escape open; the fourth closes Escape without another turn. That is **four finished blocks and three turns**; sea lanterns never count. Only detections at different block positions while Escape is open count; revisiting a counted position does nothing. A different block already showing prismarine counts immediately after turning, without a look-away delay. Closing the menu manually, choosing another tab-in option, turning the 90-degree switch off, or changing worlds resets the count. The running count stays local to that game.
+For the passive Escape-menu sequence, choose **Tab in at: After 4 blocks** and enable **Turn 90 degrees at prismarine**. These controls do not hold mining. The first three prismarine completions turn right 90 degrees; the fourth closes Escape without another turn. Only distinct positions while Escape is open count; revisits are ignored. A new prismarine position can count after the turn settles without a look-away delay. Closing the menu manually, changing the tab-in choice, turning the switch off, or changing worlds resets the count. Both passive and mining-circle progress stay local to that game.
 
 Search block names or registry IDs, add types to the list, or show only selected types. Each selected type has its own color editor with **Red, Green and Blue sliders**, a preview and reset. Selected rows now have a clearer background and accent. Changes save automatically.
 
@@ -71,7 +75,8 @@ Clue Scrolls now allows a **0.05-second minimum delay per move**. Your saved del
 
 - **K:** open Penguin in a world. At the main menu, use Open menu in the controller.
 - **J:** toggle all player nametags/tracers, including friends, preserving their appearance settings.
-- **F8:** stop both clickers and aim tracking. Default clicker toggles are ] and F7; change them in Settings.
+- **Mining-circle toggle:** choose it in Settings; Unbound by default. It starts/stops the four-block circle during focused gameplay.
+- **F8:** stop both clickers, aim tracking and the mining circle. Default clicker toggles are ] and F7; change them in Settings.
 - **Stop Penguin:** disable the mod while Minecraft stays open. Closing only the controller does not stop it. Java classes remain loaded until Minecraft exits.
 - Mining > Gen Mining: verification, auto-sell and separate alerts with volume controls.
 - Friend lists with individual on/off switches, custom labels/tracers, guard/NPC filtering and offscreen indicators.
@@ -81,12 +86,13 @@ Clue Scrolls now allows a **0.05-second minimum delay per move**. Your saved del
 
 ## Profiles and multiple windows
 
-Export/import settings through Profiles. Friend names are optional on export and import. Imports preview the change, create a backup and leave automation off until enabled, including Gen Mining's tab-in and turning actions. Profile formats **1–5** still import; new exports use **format 6** and require **1.9.19**. Per-block colors, line width and the new Gen Mining controls are included.
+Export/import settings through Profiles. Friend names are optional on export and import. Imports preview the change, create a backup, stop the running mining cycle and leave automation off until enabled, including Gen Mining's passive tab-in and turning actions. Profile formats **1–6** still import; new exports use **format 7** and require **1.9.20**. Per-block colors, line width, Gen Mining controls and the mining-cycle binding are included.
 
 Updated windows sharing the same config folder sync saved settings, normally within about half a second while ticking. Different folders remain independent. Simultaneous independent changes merge; competing edits to the same setting use the last save. Loading/stopping, selected live targets and running operations remain local. The shared file is config/penguin-live-settings.json.
 
 ## Validation
 
-The revised 1.9.19 build passed all 319 automated tests and loaded successfully in Lunar Fabric 1.21.11. The combined selector's four choices and the default OFF turning switch were checked in-game. A full in-world shattercube run remains unverified.
+Version 1.9.20 built successfully and passed all 358 automated tests. Live in-game checks of the new cycle and configurable key remain pending.
 
 See the included README.txt for additional features and troubleshooting. [MIT license](LICENSE).
+
