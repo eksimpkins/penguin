@@ -4,7 +4,7 @@ Penguin is a Windows x64 controller and mod for **Lunar Client, Minecraft 1.21.1
 
 ## Download
 
-**[Download Penguin 1.9.18 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.18/Penguin-Lunar-1.9.18-Windows.zip)**
+**[Download Penguin 1.9.19 for Windows](https://github.com/eksimpkins/penguin/releases/download/v1.9.19/Penguin-Lunar-1.9.19-Windows.zip)**
 
 Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is included. GitHub's automatic Source code downloads are not the ready-to-run application.
 
@@ -16,7 +16,7 @@ Extract the entire ZIP and keep Penguin.exe, app and runtime together. Java is i
 
 Do not install another Penguin copy in the mods folder. Restart Minecraft once when updating; closing only the controller does not clear old loaded code or a previous FAILED initialization.
 
-Use the current version in every game window sharing a settings folder. Existing settings are preserved. Versions before 1.9.16 cannot read the current shared settings format.
+Use the current version in every game window sharing a settings folder. Existing settings are preserved. Versions before 1.9.19 cannot read the current shared settings format after it is saved.
 
 ## Menu organization
 
@@ -26,7 +26,7 @@ Search checks all modules, including those outside the current category. Clear i
 
 Settings are split into smaller sections:
 
-- **Gen Mining:** Verify, Auto-sell, Alerts.
+- **Gen Mining:** Verify, Auto-sell, Alerts, Actions.
 - **Aim Assist:** Aim, Targets, Advanced.
 - **Nametags and Friend Overlay:** Display, Style.
 - **Block Tracers:** Display, Presets.
@@ -36,6 +36,14 @@ Reopening the menu restores the category, module, search, scroll positions and e
 ## Mining: Gen Mining and Block Tracers
 
 Open **K > Mining**. **Gen Mining** contains verification, auto-sell and all mining alerts, with independent switches, delays and volume controls. **Block Tracers** contains the shared block list for outlines and tracer lines.
+
+Under **Mining > Gen Mining > Actions**, **Tab in at** chooses **Not at all** (default), **Sea lantern**, **Prismarine** or **After 4 blocks**. The block choices close Minecraft's Escape pause menu when you aim at that type; **After 4 blocks** waits for the shattercube cycle below. Sea lantern is the early warning at **50 remaining**; prismarine means the center block is **finished**. This does not change which Windows app is in front. The selected action is independent of alarm switches and volumes.
+
+**Turn 90 degrees at prismarine** is a separate switch, **OFF by default**. Enable it to turn 90 degrees to the right when looking at prismarine, independently of the alarm sound. Outside the four-block cycle, look away for one second before it can turn again.
+
+The shattercube warning stages are sea lantern at **50**, dark prismarine at **25**, and prismarine bricks at **10** remaining. Only **plain prismarine** counts as finished.
+
+For a shattercube cycle, choose **Tab in at: After 4 blocks** and enable **Turn 90 degrees at prismarine**. The first three prismarine completions turn right 90 degrees and leave Escape open; the fourth closes Escape without another turn. That is **four finished blocks and three turns**; sea lanterns never count. Only detections at different block positions while Escape is open count; revisiting a counted position does nothing. A different block already showing prismarine counts immediately after turning, without a look-away delay. Closing the menu manually, choosing another tab-in option, turning the 90-degree switch off, or changing worlds resets the count. The running count stays local to that game.
 
 Search block names or registry IDs, add types to the list, or show only selected types. Each selected type has its own color editor with **Red, Green and Blue sliders**, a preview and reset. Selected rows now have a clearer background and accent. Changes save automatically.
 
@@ -73,12 +81,12 @@ Clue Scrolls now allows a **0.05-second minimum delay per move**. Your saved del
 
 ## Profiles and multiple windows
 
-Export/import settings through Profiles. Friend names are optional on export and import. Imports preview the change, create a backup and leave automation off until enabled. Profile formats **1–4** still import; new exports use **format 5** and require **1.9.16**. Per-block colors and line width are included.
+Export/import settings through Profiles. Friend names are optional on export and import. Imports preview the change, create a backup and leave automation off until enabled, including Gen Mining's tab-in and turning actions. Profile formats **1–5** still import; new exports use **format 6** and require **1.9.19**. Per-block colors, line width and the new Gen Mining controls are included.
 
 Updated windows sharing the same config folder sync saved settings, normally within about half a second while ticking. Different folders remain independent. Simultaneous independent changes merge; competing edits to the same setting use the last save. Loading/stopping, selected live targets and running operations remain local. The shared file is config/penguin-live-settings.json.
 
 ## Validation
 
-Version 1.9.18 built successfully and passed all 276 automated tests. The corrected build loaded in Lunar Fabric 1.21.11 with the Windows clicker ready. Live checks confirmed the menu opens, Mining keeps its two modules separate, the compact alert controls fit, and closing/reopening restores the selected section.
+The revised 1.9.19 build passed all 319 automated tests and loaded successfully in Lunar Fabric 1.21.11. The combined selector's four choices and the default OFF turning switch were checked in-game. A full in-world shattercube run remains unverified.
 
 See the included README.txt for additional features and troubleshooting. [MIT license](LICENSE).
